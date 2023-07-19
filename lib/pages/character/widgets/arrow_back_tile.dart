@@ -11,7 +11,7 @@ class ArrowBackTile extends StatelessWidget {
       leading: const Icon(
         Icons.arrow_back,
       ),
-      onTap: () => context.router.back(),
+      onTap: () => context.router.pop(),
       title: const Text(
         'GO BACK',
         style: TextStyle(fontWeight: FontWeight.bold),

@@ -9,27 +9,25 @@ class CharacterItem extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Card(
+      clipBehavior: Clip.antiAliasWithSaveLayer,
       margin: const EdgeInsets.symmetric(vertical: 10),
       elevation: 3,
-      child: ClipRRect(
-        borderRadius: BorderRadius.circular(10),
-        child: Column(
-          crossAxisAlignment: CrossAxisAlignment.stretch,
-          children: [
-            Image.network(
-              character.image,
-              fit: BoxFit.cover,
-              height: 300,
+      child: Column(
+        crossAxisAlignment: CrossAxisAlignment.stretch,
+        children: [
+          Image.network(
+            character.image,
+            fit: BoxFit.cover,
+            height: 300,
+          ),
+          ListTile(
+            title: Text(
+              character.name,
+              style: const TextStyle(fontWeight: FontWeight.bold),
             ),
-            ListTile(
-              title: Text(
-                character.name,
-                style: const TextStyle(fontWeight: FontWeight.bold),
-              ),
-              subtitle: Text(character.species),
-            ),
-          ],
-        ),
+            subtitle: Text(character.species),
+          ),
+        ],
       ),
     );
   }

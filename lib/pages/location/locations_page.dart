@@ -18,11 +18,6 @@ class LocationsPage extends StatefulWidget {
 class _LocationsPageState extends State<LocationsPage> {
   final LocationRepository _locationRepository = DioUtil().locationRepository;
 
-  Future<Pagination<Location>> getLocations() async {
-    final res = await _locationRepository.getLocations();
-    return res;
-  }
-
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -30,7 +25,7 @@ class _LocationsPageState extends State<LocationsPage> {
       body: Padding(
         padding: const EdgeInsets.symmetric(horizontal: 24),
         child: FutureBuilder<Pagination<Location>>(
-          future: getLocations(),
+          future: _locationRepository.getLocations(),
           builder: (context, snapshot) {
             final locations = snapshot.data;
             if (snapshot.hasError) {

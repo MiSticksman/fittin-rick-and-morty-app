@@ -37,7 +37,9 @@ class CharInfoList extends StatelessWidget {
               context.router.navigate(
                 LocationTab(
                   children: [
-                    LocationItemPageRoute(id: character.location.url.id),
+                    LocationItemPageRoute(
+                      id: character.location.url.id,
+                    ),
                   ],
                 ),
               );

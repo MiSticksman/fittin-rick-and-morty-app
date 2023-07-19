@@ -77,7 +77,7 @@ class _CharacterItemPageState extends State<CharacterItemPage> {
                   CharInfoList(
                     character: character,
                   ),
-                  CharEpisodesListTile(
+                  SliverCharEpisodesListTile(
                     episodes: character.episode,
                   ),
                 ],

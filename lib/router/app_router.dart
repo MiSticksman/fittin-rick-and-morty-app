@@ -12,24 +12,31 @@ class AppRouter extends _$AppRouter {
           initial: true,
           page: HomePageRoute.page,
           children: [
-            AutoRoute(initial: true, page: CharacterTab.page, children: [
-              AutoRoute(
-                initial: true,
-                page: CharactersPageRoute.page,
-              ),
-              AutoRoute(
-                page: CharacterItemPageRoute.page,
-              ),
-            ]),
-            AutoRoute(page: EpisodeTab.page, children: [
-              AutoRoute(
-                initial: true,
-                page: EpisodesPageRoute.page,
-              ),
-              AutoRoute(
-                page: EpisodeItemPageRoute.page,
-              ),
-            ]),
+            AutoRoute(
+              initial: true,
+              page: CharacterTab.page,
+              children: [
+                AutoRoute(
+                  initial: true,
+                  page: CharactersPageRoute.page,
+                ),
+                AutoRoute(
+                  page: CharacterItemPageRoute.page,
+                ),
+              ],
+            ),
+            AutoRoute(
+              page: EpisodeTab.page,
+              children: [
+                AutoRoute(
+                  initial: true,
+                  page: EpisodesPageRoute.page,
+                ),
+                AutoRoute(
+                  page: EpisodeItemPageRoute.page,
+                ),
+              ],
+            ),
             AutoRoute(
               page: LocationTab.page,
               children: [

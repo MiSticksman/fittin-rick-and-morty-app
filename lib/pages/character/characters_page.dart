@@ -61,6 +61,7 @@ class _CharactersPageState extends State<CharactersPage> {
             return Padding(
               padding: const EdgeInsets.symmetric(horizontal: 24),
               child: CustomScrollView(
+                controller: controller,
                 slivers: [
                   SliverToBoxAdapter(
                     child: Hero(

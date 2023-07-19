@@ -19,26 +19,17 @@ class _EpisodesPageState extends State<EpisodesPage> {
   final EpisodeRepository _episodeRepository = DioUtil().episodeRepository;
 
   @override
-  void initState() {
-    super.initState();
-  }
-
-  Future<Pagination<Episode>> getEpisodes() async {
-    final res = await _episodeRepository.getEpisodes();
-    return res;
-  }
-
-  @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: const AppBarWidget(),
       body: FutureBuilder(
-        future: getEpisodes(),
+        future: _episodeRepository.getEpisodes(),
         builder: (context, snapshot) {
           final episodes = snapshot.data;
           if (snapshot.hasError) {
             return Center(child: Text(snapshot.error.toString()));
-          } else if (episodes == null) {
+          }
+          if (episodes == null) {
             return const Center(
               child: CircularProgressIndicator(),
             );

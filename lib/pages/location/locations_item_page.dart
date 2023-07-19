@@ -11,11 +11,9 @@ class LocationItemPage extends StatefulWidget {
   const LocationItemPage({
     super.key,
     required this.id,
-    this.location,
   });
 
   final int id;
-  final Location? location;
 
   @override
   State<LocationItemPage> createState() => _LocationItemPageState();
@@ -29,11 +27,6 @@ class _LocationItemPageState extends State<LocationItemPage> {
     super.initState();
   }
 
-  Future<Location> getLocation() async {
-    final res = await _locationRepository.getLocation(widget.id);
-    print(res.name);
-    return res;
-  }
 
   @override
   Widget build(BuildContext context) {
@@ -42,8 +35,7 @@ class _LocationItemPageState extends State<LocationItemPage> {
       body: Padding(
         padding: const EdgeInsets.symmetric(horizontal: 24),
         child: FutureBuilder<Location>(
-          initialData: widget.location,
-          future: getLocation(),
+          future: _locationRepository.getLocation(widget.id),
           builder: (context, snapshot) {
             final location = snapshot.data;
             if (location != null) {
@@ -54,7 +46,7 @@ class _LocationItemPageState extends State<LocationItemPage> {
                 ],
               );
             }
-            return Center(child: Text(snapshot.error.toString()));
+            return const Center(child: CircularProgressIndicator());
           },
         ),
       ),

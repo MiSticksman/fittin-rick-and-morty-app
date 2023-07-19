@@ -68,7 +68,6 @@ abstract class _$AppRouter extends RootStackRouter {
         child: LocationItemPage(
           key: args.key,
           id: args.id,
-          location: args.location,
         ),
       );
     },

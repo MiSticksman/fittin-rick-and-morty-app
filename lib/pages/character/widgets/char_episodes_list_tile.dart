@@ -6,8 +6,8 @@ import 'package:rick_and_morty/network/util/dio_util.dart';
 import 'package:rick_and_morty/network/util/path_id.dart';
 import 'package:rick_and_morty/router/app_router.dart';
 
-class CharEpisodesListTile extends StatelessWidget {
-  CharEpisodesListTile({super.key, required this.episodes});
+class SliverCharEpisodesListTile extends StatelessWidget {
+  SliverCharEpisodesListTile({super.key, required this.episodes});
 
   final List<String> episodes;
 
