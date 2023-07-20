@@ -14,7 +14,7 @@ class EpisodeRepository{
       final result = await _restService.getEpisode(id);
       return result;
     } on DioException catch (error, stackTrace) {
-      Error.throwWithStackTrace(error, stackTrace);
+      rethrow;
     }
   }
 
@@ -23,7 +23,7 @@ class EpisodeRepository{
       final result = await _restService.getEpisodes();
       return result;
     } on DioException catch (error, stackTrace) {
-      Error.throwWithStackTrace(error, stackTrace);
+      rethrow;
     }
   }
 
@@ -32,7 +32,7 @@ class EpisodeRepository{
       final result = await _restService.getMultipleEpisode(ids);
       return result;
     } on DioException catch (error, stackTrace) {
-      Error.throwWithStackTrace(error, stackTrace);
+      rethrow;
     }
   }
 }

@@ -13,7 +13,7 @@ class LocationRepository {
       final result = await _restService.getLocation(id);
       return result;
     } on DioException catch (error, stackTrace) {
-      Error.throwWithStackTrace(error, stackTrace);
+      rethrow;
     }
   }
 
@@ -22,7 +22,7 @@ class LocationRepository {
       final result = await _restService.getLocations();
       return result;
     } on DioException catch (error, stackTrace) {
-      Error.throwWithStackTrace(error, stackTrace);
+      rethrow;
     }
   }
 }

@@ -12,8 +12,8 @@ class CharacterRepository {
     try {
       final result = await _restService.getCharacter(id);
       return result;
-    } on DioException catch (error, stackTrace) {
-      Error.throwWithStackTrace(error, stackTrace);
+    } on DioException catch (error) {
+      rethrow;
     }
   }
 
@@ -22,7 +22,7 @@ class CharacterRepository {
       final result = await _restService.getCharacters(page: page);
       return result;
     } on DioException catch (error, stackTrace) {
-      Error.throwWithStackTrace(error, stackTrace);
+      rethrow;
     }
   }
 }
